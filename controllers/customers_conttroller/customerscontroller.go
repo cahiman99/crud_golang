@@ -1,0 +1,128 @@
+package customerscontroller
+
+import (
+	"fmt"
+	"net/http"
+	// "github.com/jeypc/go-crud/libraries"
+	// "github.com/jeypc/go-crud/models"
+	// "github.com/jeypc/go-crud/entities"
+)
+
+// var validation = libraries.NewValidation()
+// var customersModel = models.NewcustomersModel()
+
+func Index(response http.ResponseWriter, request *http.Request) {
+	fmt.Println("tes web index sukses")
+	// customers, _ := customersModel.FindAll()
+
+	// data := map[string]interface{}{
+	// 	"customers": customers,
+	// }
+
+	// temp, err := template.ParseFiles("views/customers/index.html")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// temp.Execute(response, data)
+}
+
+func Add(response http.ResponseWriter, request *http.Request) {
+
+	// if request.Method == http.MethodGet {
+	// 	temp, err := template.ParseFiles("views/customers/add.html")
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	temp.Execute(response, nil)
+	// } else if request.Method == http.MethodPost {
+
+	// 	request.ParseForm()
+
+	// 	var customers entities.customers
+	// 	customers.NamaLengkap = request.Form.Get("nama_lengkap")
+	// 	customers.NIK = request.Form.Get("nik")
+	// 	customers.JenisKelamin = request.Form.Get("jenis_kelamin")
+	// 	customers.TempatLahir = request.Form.Get("tempat_lahir")
+	// 	customers.TanggalLahir = request.Form.Get("tanggal_lahir")
+	// 	customers.Alamat = request.Form.Get("alamat")
+	// 	customers.NoHp = request.Form.Get("no_hp")
+
+	// 	var data = make(map[string]interface{})
+
+	// 	vErrors := validation.Struct(customers)
+
+	// 	if vErrors != nil {
+	// 		data["customers"] = customers
+	// 		data["validation"] = vErrors
+	// 	} else {
+	// 		data["pesan"] = "Data customers berhasil disimpan"
+	// 		customersModel.Create(customers)
+	// 	}
+
+	// 	temp, _ := template.ParseFiles("views/customers/add.html")
+	// 	temp.Execute(response, data)
+	// }
+
+}
+
+func Edit(response http.ResponseWriter, request *http.Request) {
+
+	// if request.Method == http.MethodGet {
+
+	// 	queryString := request.URL.Query()
+	// 	id, _ := strconv.ParseInt(queryString.Get("id"), 10, 64)
+
+	// 	var customers entities.customers
+	// 	customersModel.Find(id, &customers)
+
+	// 	data := map[string]interface{}{
+	// 		"customers": customers,
+	// 	}
+
+	// 	temp, err := template.ParseFiles("views/customers/edit.html")
+	// 	if err != nil {
+	// 		panic(err)
+	// 	}
+	// 	temp.Execute(response, data)
+
+	// } else if request.Method == http.MethodPost {
+
+	// 	request.ParseForm()
+
+	// 	var customers entities.customers
+	// 	customers.Id, _ = strconv.ParseInt(request.Form.Get("id"), 10, 64)
+	// 	customers.NamaLengkap = request.Form.Get("nama_lengkap")
+	// 	customers.NIK = request.Form.Get("nik")
+	// 	customers.JenisKelamin = request.Form.Get("jenis_kelamin")
+	// 	customers.TempatLahir = request.Form.Get("tempat_lahir")
+	// 	customers.TanggalLahir = request.Form.Get("tanggal_lahir")
+	// 	customers.Alamat = request.Form.Get("alamat")
+	// 	customers.NoHp = request.Form.Get("no_hp")
+
+	// 	var data = make(map[string]interface{})
+
+	// 	vErrors := validation.Struct(customers)
+
+	// 	if vErrors != nil {
+	// 		data["customers"] = customers
+	// 		data["validation"] = vErrors
+	// 	} else {
+	// 		data["pesan"] = "Data customers berhasil diperbarui"
+	// 		customersModel.Update(customers)
+	// 	}
+
+	// 	temp, _ := template.ParseFiles("views/customers/edit.html")
+	// 	temp.Execute(response, data)
+	// }
+
+}
+
+func Delete(response http.ResponseWriter, request *http.Request) {
+
+	// queryString := request.URL.Query()
+	// id, _ := strconv.ParseInt(queryString.Get("id"), 10, 64)
+
+	// customersModel.Delete(id)
+
+	// http.Redirect(response, request, "/customers", http.StatusSeeOther)
+}
