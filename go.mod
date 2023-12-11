@@ -1,4 +1,4 @@
-module github.com/cahiman99/go-crud
+module github.com/cahiman99/crud_golang
 
 go 1.21.3
 
