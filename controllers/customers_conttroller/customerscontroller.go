@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/cahiman99/crud_golang/entities"
 	"github.com/cahiman99/crud_golang/libraries"
 	"github.com/cahiman99/crud_golang/models"
 )
@@ -38,7 +39,7 @@ func Add(response http.ResponseWriter, request *http.Request) {
 
 		request.ParseForm()
 
-		var customers entities.customers
+		var customers entities.Customers
 		customers.Name = request.Form.Get("name")
 		customers.NIK = request.Form.Get("nik")
 		customers.JenisKelamin = request.Form.Get("jenis_kelamin")
@@ -72,7 +73,7 @@ func Edit(response http.ResponseWriter, request *http.Request) {
 		queryString := request.URL.Query()
 		id, _ := strconv.ParseInt(queryString.Get("id"), 10, 64)
 
-		var customers entities.customers
+		var customers entities.Customers
 		customersModel.Find(id, &customers)
 
 		data := map[string]interface{}{
@@ -89,7 +90,7 @@ func Edit(response http.ResponseWriter, request *http.Request) {
 
 		request.ParseForm()
 
-		var customers entities.customers
+		var customers entities.Customers
 		customers.Id, _ = strconv.ParseInt(request.Form.Get("id"), 10, 64)
 		customers.Name = request.Form.Get("nama_lengkap")
 		customers.NIK = request.Form.Get("nik")

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/cahiman99/crud_golang/config"
-	customers "github.com/cahiman99/crud_golang/entities"
+	"github.com/cahiman99/crud_golang/entities"
 )
 
 type CustomersModel struct {
@@ -32,9 +32,9 @@ func (p *CustomersModel) FindAll() ([]entities.Customers, error) {
 	}
 	defer rows.Close()
 
-	var dataPasien []entities.Customers
+	var dataCustomers []entities.Customers
 	for rows.Next() {
-		var pasien entities.Customers
+		var customers entities.Customers
 		rows.Scan(&customers.Id,
 			&customers.Name,
 			&customers.NIK,
@@ -44,20 +44,20 @@ func (p *CustomersModel) FindAll() ([]entities.Customers, error) {
 			&customers.Alamat,
 			&customers.No_hp)
 
-		if pasien.JenisKelamin == "1" {
-			pasien.JenisKelamin = "Laki-laki"
+		if customers.JenisKelamin == "1" {
+			customers.JenisKelamin = "Laki-laki"
 		} else {
-			pasien.JenisKelamin = "Perempuan"
+			customers.JenisKelamin = "Perempuan"
 		}
 		// 2006-01-02 => yyyy-mm-dd
-		tgl_lahir, _ := time.Parse("2006-01-02", pasien.TanggalLahir)
+		tgl_lahir, _ := time.Parse("2006-01-02", customers.Tanggal_lahir)
 		// 02-01-2006 => dd-mm-yyyy
-		pasien.TanggalLahir = tgl_lahir.Format("02-01-2006")
+		customers.Tanggal_lahir = tgl_lahir.Format("02-01-2006")
 
-		dataPasien = append(dataPasien, pasien)
+		dataCustomers = append(dataCustomers, customers)
 	}
 
-	return dataPasien, nil
+	return dataCustomers, nil
 
 }
 
@@ -82,7 +82,7 @@ func (p *CustomersModel) Find(id int64, customers *entities.Customers) error {
 		&customers.Id,
 		&customers.Name,
 		&customers.NIK,
-		&customers.Jenis_kelamin,
+		&customers.JenisKelamin,
 		&customers.Tempat_lahir,
 		&customers.Tanggal_lahir,
 		&customers.Alamat,
