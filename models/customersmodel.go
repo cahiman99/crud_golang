@@ -26,7 +26,8 @@ func NewCustomersModel() *CustomersModel {
 
 func (p *CustomersModel) FindAll() ([]entities.Customers, error) {
 
-	rows, err := p.conn.Query("select * from customers")
+	rows, err := p.conn.Query("select id,name,nik,jenis_kelamin,tempat_lahir,tanggal_lahir,alamat,no_hp from customers")
+
 	if err != nil {
 		return []entities.Customers{}, err
 	}
@@ -63,7 +64,7 @@ func (p *CustomersModel) FindAll() ([]entities.Customers, error) {
 
 func (p *CustomersModel) Create(customers entities.Customers) bool {
 
-	result, err := p.conn.Exec("insert into customers (nama_lengkap, nik, jenis_kelamin, tempat_lahir, tanggal_lahir, alamat, no_hp) values(?,?,?,?,?,?,?)",
+	result, err := p.conn.Exec("insert into customers (name, nik, jenis_kelamin, tempat_lahir, tanggal_lahir, alamat, no_hp) values(?,?,?,?,?,?,?)",
 		customers.Name, customers.NIK, customers.JenisKelamin, customers.Tempat_lahir, customers.Tanggal_lahir, customers.Alamat, customers.No_hp)
 
 	if err != nil {
@@ -78,7 +79,7 @@ func (p *CustomersModel) Create(customers entities.Customers) bool {
 
 func (p *CustomersModel) Find(id int64, customers *entities.Customers) error {
 
-	return p.conn.QueryRow("select * from customers where id = ?", id).Scan(
+	return p.conn.QueryRow("select id,name,nik,jenis_kelamin,tempat_lahir,tanggal_lahir,alamat,no_hp from customers where id = ?", id).Scan(
 		&customers.Id,
 		&customers.Name,
 		&customers.NIK,

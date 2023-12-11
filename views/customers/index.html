@@ -16,8 +16,8 @@
 <body>
 
     <div class="container mt-5">
-        <h3>Data Pasien</h3>
-        <a href="/pasien/add" class="btn btn-sm btn-primary">Tambah Data</a>
+        <h3>Data Customers</h3>
+        <a href="/customers/add" class="btn btn-sm btn-primary">Tambah Data</a>
         <hr/>
         <table class="table table-sriped table-hover">
             <thead>
@@ -33,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                {{ range .pasien }}
+                {{ range .customers }}
                     <tr>
                         <td>{{ .Name }}</td>
                         <td>{{ .NIK }}</td>

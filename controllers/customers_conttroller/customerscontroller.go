@@ -40,7 +40,7 @@ func Add(response http.ResponseWriter, request *http.Request) {
 		request.ParseForm()
 
 		var customers entities.Customers
-		customers.Name = request.Form.Get("name")
+		customers.Name = request.Form.Get("nama_lengkap")
 		customers.NIK = request.Form.Get("nik")
 		customers.JenisKelamin = request.Form.Get("jenis_kelamin")
 		customers.Tempat_lahir = request.Form.Get("tempat_lahir")
